@@ -70,6 +70,9 @@ select{
   align-items: center;
   gap: 12px;
 }
+.max-height{
+  max-height: fit-content;
+}
 .list-card {
   background-color: #ebecf0;
   border-radius: 8px;
@@ -77,7 +80,6 @@ select{
   flex-direction: column;
   padding: 8px;
   width: 310px;
-  max-height: fit-content;
   gap: 8px;
 }
 .list-container{
@@ -91,6 +93,7 @@ select{
   padding: 8px;
   border-radius: 4px;
   background-color: white;
+  min-height: 101px;
   cursor: grab;
 }
 .add-btn {
@@ -108,8 +111,11 @@ select{
   flex-wrap: wrap;
   gap: 12px;
   flex: 1;
+  max-width: 194px;
+  min-height: 85px;
 }
 .details p {
+  max-width: 194px;
   display: flex;
   flex-wrap: wrap;
 }

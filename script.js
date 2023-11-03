@@ -15,6 +15,8 @@ let toDo = document.getElementById("toDo");
 let inProgress = document.getElementById("inProgress");
 let stuck = document.getElementById("stuck");
 let done = document.getElementById("done");
+let count = document.querySelector(".count");
+
 
 function openPopup() {
     popup.classList.add("flex");
@@ -25,55 +27,57 @@ function closePopup() {
 }
 
 const data = [];
-
-const mockData = {
-    title: "",
-    desc: "",
-    status: "",
-    priority: "",
-};
+const id = 'id-' + Math.random();
 
 function render(data) {
-    
-    for (let i = 0; i < data.length; i++){
-        if (data[i].status === "To Do"){
-            toDo.innerHTML += createCard(data[i]);
-        }
-        if (data[i].status === "In progress"){
-            inProgress.innerHTML += createCard(data[i]);
-        }
-        if (data[i].status === "Stuck"){
-            stuck.innerHTML += createCard(data[i]);
-        }
-        if (data[i].status === "Done"){
-            done.innerHTML += createCard(data[i]);
-        }
-    }
-}
-
-
-function addCard(){
-    
-    mockData.title = input.value;
-    mockData.desc = textArea.value;
-    mockData.status = select.value;
-    mockData.priority = difficult.value;
-
+    console.log(data.length);
     toDo.innerHTML = "";
     inProgress.innerHTML = "";
     stuck.innerHTML = "";
     done.innerHTML = "";
 
-    
-    popup.classList.remove("flex");
-    data.push(mockData);
-    render(data);
+    for (let i = 0; i < data.length; i++) {
+        if (data[i].status === "To Do") {
+            toDo.innerHTML += createCard(data[i]);
+        }
+        if (data[i].status === "In progress") {
+            inProgress.innerHTML += createCard(data[i]);
+        }
+        if (data[i].status === "Stuck") {
+            stuck.innerHTML += createCard(data[i]);
+        }
+        if (data[i].status === "Done") {
+            done.innerHTML += createCard(data[i]);
+        }
+    }
+
+    function removeCard(id){
+        const element = document.getElementById(id);
+        element.remove();
+    }
 }
 
+function addCard() {
+    const mockData = {
+        title: input.value,
+        desc: textArea.value,
+        status: select.value,
+        priority: difficult.value,
+    };
+
+    data.push(mockData);
+    render(data);
 
 
+    input.value = "";
+    textArea.value = "";
+    select.value = "";
+    difficult.value = "";
 
-function createCard(card, index) {
+    popup.classList.remove("flex");
+}
+
+function createCard(card) {
     const { title, desc, priority } = card;
     return `<div class="list">
                 <div class="icon"><img class="center" src="img/tick.png" alt="" width="12px" height="12px"></div>
@@ -83,27 +87,13 @@ function createCard(card, index) {
                     <div class="priority">${priority}</div>
                 </div>
                 <div class="actions">
-                    <div class="icon remove" onclick="removeCard(${index})"><img src="img/x.png" alt="" width="12px" height="12px"></div>
+                    <div class="icon remove"><img src="img/x.png" alt="" width="12px" height="12px"></div>
                     <div class="icon"><img src="img/note.png" alt="" width="12px" height="12px"></div>
                 </div>
             </div>`;
 }
 
-function removeCard(index) {
-    data.splice(index, 1);
-    render(data);
-}
-
-listContainer.addEventListener("click", (event) => {
-    if (event.target.classList.contains("remove")) {
-        const cardIndex = Array.from(listContainer.querySelectorAll(".list")).indexOf(event.target.parentElement.parentElement);
-        if (cardIndex !== -1) {
-            removeCard(cardIndex);
-        }
-    }
-});
-
-
+remove.onclick = removeCard;
 button.onclick = addCard;
 exit[0].onclick = closePopup;
 
