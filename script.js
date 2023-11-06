@@ -26,11 +26,30 @@ function closePopup() {
     popup.classList.remove("flex");
 }
 
-const data = [];
-const id = 'id-' + Math.random();
+const id = () => {
+    return 'id-' + Math.random();
+}
+
+let data = [
+    {
+        id: id(),
+        title: 'asd',
+        desc: "asd",
+        status: "To Do",
+        priority: "low"
+    },
+    {
+        id: id(),
+        title: 'test',
+        desc: "asd",
+        status: "Done",
+        priority: "low"
+    }
+];
+
 
 function render(data) {
-    console.log(data.length);
+
     toDo.innerHTML = "";
     inProgress.innerHTML = "";
     stuck.innerHTML = "";
@@ -51,14 +70,19 @@ function render(data) {
         }
     }
 
-    function removeCard(id){
-        const element = document.getElementById(id);
-        element.remove();
+    let deleteIcon = document.querySelector('.remove')
+
+    deleteIcon.onclick = () => {
+        removeCard(deleteIcon)
     }
+
+
 }
+
 
 function addCard() {
     const mockData = {
+        id: id(),
         title: input.value,
         desc: textArea.value,
         status: select.value,
@@ -67,7 +91,6 @@ function addCard() {
 
     data.push(mockData);
     render(data);
-
 
     input.value = "";
     textArea.value = "";
@@ -78,7 +101,7 @@ function addCard() {
 }
 
 function createCard(card) {
-    const { title, desc, priority } = card;
+    const { title, desc, priority, id } = card;
     return `<div class="list">
                 <div class="icon"><img class="center" src="img/tick.png" alt="" width="12px" height="12px"></div>
                 <div class="details">
@@ -87,13 +110,24 @@ function createCard(card) {
                     <div class="priority">${priority}</div>
                 </div>
                 <div class="actions">
-                    <div class="icon remove"><img src="img/x.png" alt="" width="12px" height="12px"></div>
+                    <div class="icon remove" id="${id}"><img src="img/x.png" alt="" width="12px" height="12px"></div>
                     <div class="icon"><img src="img/note.png" alt="" width="12px" height="12px"></div>
                 </div>
             </div>`;
 }
 
-remove.onclick = removeCard;
+function removeCard(element) {
+    const id = element.id;
+
+    const newArr = data.filter(el => {
+        return el.id !== id
+    })
+
+    data = newArr
+
+    render(data);
+}
+
 button.onclick = addCard;
 exit[0].onclick = closePopup;
 
@@ -101,3 +135,5 @@ addbtn[0].onclick = openPopup;
 addbtn[1].onclick = openPopup;
 addbtn[2].onclick = openPopup;
 addbtn[3].onclick = openPopup;
+
+render(data)
