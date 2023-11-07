@@ -1,6 +1,7 @@
 let popup = document.getElementById("popup");
 let addbtn = document.getElementsByClassName("add-btn");
 let button = document.querySelector("button");
+let body = document.querySelector("body");
 let exit = document.getElementsByClassName("close");
 let listCard = document.getElementsByClassName("list-card");
 let list = document.querySelector(".list");
@@ -16,6 +17,12 @@ let inProgress = document.getElementById("inProgress");
 let stuck = document.getElementById("stuck");
 let done = document.getElementById("done");
 let count = document.querySelector(".count");
+let todoCount = document.getElementById("todo-count");
+let inProgressCount = document.getElementById("inprogress-count");
+let stuckCount = document.getElementById("stuck-count");
+let doneCount = document.getElementById("done-count");
+
+
 
 
 function openPopup() {
@@ -50,6 +57,15 @@ let data = [
 
 function render(data) {
 
+    const count = {
+        todoCount: 0,
+        inProgressCount: 0,
+        stuckCount: 0,
+        doneCount: 0
+    }
+
+
+
     toDo.innerHTML = "";
     inProgress.innerHTML = "";
     stuck.innerHTML = "";
@@ -58,25 +74,36 @@ function render(data) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].status === "To Do") {
             toDo.innerHTML += createCard(data[i]);
+            count.todoCount += 1;
         }
         if (data[i].status === "In progress") {
             inProgress.innerHTML += createCard(data[i]);
+            count.inProgressCount += 1;
         }
         if (data[i].status === "Stuck") {
             stuck.innerHTML += createCard(data[i]);
+            count.stuckCount += 1;
         }
         if (data[i].status === "Done") {
             done.innerHTML += createCard(data[i]);
+            count.doneCount += 1;
         }
     }
 
-    let deleteIcon = document.querySelector('.remove')
+    todoCount.innerText = count.todoCount;
+    inProgressCount.innerText = count.inProgressCount;
+    stuckCount.innerText = count.stuckCount;
+    doneCount.innerText = count.doneCount;
 
-    deleteIcon.onclick = () => {
-        removeCard(deleteIcon)
+    let deleteIcon = document.querySelectorAll('.remove');
+    let edit = document.querySelectorAll(".edit");
+
+    for (let i = 0; i < deleteIcon.length; i++) {
+        deleteIcon[i].onclick = () => {
+            removeCard(deleteIcon[i])
+        }
+        edit[i].onclick = editCard;
     }
-
-
 }
 
 
@@ -111,9 +138,12 @@ function createCard(card) {
                 </div>
                 <div class="actions">
                     <div class="icon remove" id="${id}"><img src="img/x.png" alt="" width="12px" height="12px"></div>
-                    <div class="icon"><img src="img/note.png" alt="" width="12px" height="12px"></div>
+                    <div class="icon edit"><img src="img/note.png" alt="" width="12px" height="12px"></div>
                 </div>
             </div>`;
+}
+function editCard() {
+    popup.classList.add("flex");
 }
 
 function removeCard(element) {
@@ -126,6 +156,7 @@ function removeCard(element) {
     data = newArr
 
     render(data);
+    console.log(newArr)
 }
 
 button.onclick = addCard;
