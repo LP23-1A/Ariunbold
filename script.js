@@ -3,8 +3,7 @@ let addbtn = document.getElementsByClassName("add-btn");
 let button = document.querySelector("button");
 let body = document.querySelector("body");
 let exit = document.getElementsByClassName("close");
-let listCard = document.getElementsByClassName("list-card");
-let lists = document.querySelectorAll(".list");
+let listCard = document.querySelectorAll(".list-card");
 let warn = document.getElementsByClassName("error");
 let input = document.querySelector("input");
 let textArea = document.querySelector("textarea");
@@ -23,7 +22,7 @@ let stuckCount = document.getElementById("stuck-count");
 let doneCount = document.getElementById("done-count");
 let errortxt = document.querySelector("error-text");
 
-
+let draggedItem = null;
 
 
 function openPopup() {
@@ -41,17 +40,17 @@ const id = () => {
 let data = [
     {
         id: id(),
-        title: 'asd',
-        desc: "asd",
+        title: 'Todo list',
+        desc: "Ramdom things",
         status: "To Do",
-        priority: "low"
+        priority: "High"
     },
     {
         id: id(),
-        title: 'test',
-        desc: "asd",
+        title: 'Done list',
+        desc: "Ramdom things",
         status: "Done",
-        priority: "low"
+        priority: "Medium"
     }
 ];
 
@@ -64,8 +63,6 @@ function render(data) {
         stuckCount: 0,
         doneCount: 0
     }
-
-
 
     toDo.innerHTML = "";
     inProgress.innerHTML = "";
@@ -111,7 +108,8 @@ function render(data) {
 
 
 function dragNdrop() {
-    let draggedItem = null;
+
+    let lists = document.querySelectorAll(".list");
     lists.forEach((lists) => {
         lists.addEventListener("dragstart", (event) => {
             event.target.value;
@@ -127,7 +125,7 @@ function dragNdrop() {
         });
     });
 
-    listContainer.forEach((container) => {
+    listCard.forEach((container) => {
         container.addEventListener("dragover", (event) => {
             event.preventDefault();
         });
@@ -136,7 +134,8 @@ function dragNdrop() {
             if (draggedItem) {
                 const draggingContainer = draggedItem.parentNode;
                 if (draggingContainer !== event.currentTarget) {
-                    event.currentTarget.appendChild(draggedItem);
+                    event.currentTarget.querySelector('.list-container').appendChild(draggedItem);
+                    
                 }
             }
         });
@@ -144,7 +143,6 @@ function dragNdrop() {
         container.addEventListener("drop", (event) => {
             event.preventDefault();
         });
-        console.log("working");
     })
 }
 
@@ -171,7 +169,7 @@ function addCard() {
 
 function createCard(card) {
     const { title, desc, priority, id } = card;
-    return `<div draggable="true" class="list">
+    return `<div draggable="true" class="list" data-id=${id}>
                 <div class="icon"><img class="center" src="img/tick.png" alt="" width="12px" height="12px"></div>
                 <div class="details">
                     <h4>${title}</h4>
