@@ -4,12 +4,12 @@ let button = document.querySelector("button");
 let body = document.querySelector("body");
 let exit = document.getElementsByClassName("close");
 let listCard = document.getElementsByClassName("list-card");
-let list = document.querySelector(".list");
+let lists = document.querySelectorAll(".list");
 let warn = document.getElementsByClassName("error");
 let input = document.querySelector("input");
 let textArea = document.querySelector("textarea");
 let difficult = document.getElementById("difficult");
-let listContainer = document.querySelector(".list-container");
+let listContainer = document.querySelectorAll(".list-container");
 let remove = document.querySelector(".remove");
 let select = document.getElementById("selector");
 let toDo = document.getElementById("toDo");
@@ -21,6 +21,7 @@ let todoCount = document.getElementById("todo-count");
 let inProgressCount = document.getElementById("inprogress-count");
 let stuckCount = document.getElementById("stuck-count");
 let doneCount = document.getElementById("done-count");
+let errortxt = document.querySelector("error-text");
 
 
 
@@ -103,7 +104,48 @@ function render(data) {
             removeCard(deleteIcon[i])
         }
         edit[i].onclick = editCard;
+        console.log(deleteIcon[i]);
     }
+    dragNdrop()
+}
+
+
+function dragNdrop() {
+    let draggedItem = null;
+    lists.forEach((lists) => {
+        lists.addEventListener("dragstart", (event) => {
+            event.target.value;
+            draggedItem = event.target;
+            event.dataTransfer.setData(
+                "text",
+                event.target.getAttribute("data-id")
+            );
+        });
+
+        lists.addEventListener("dragend", () => {
+            draggedItem = null;
+        });
+    });
+
+    listContainer.forEach((container) => {
+        container.addEventListener("dragover", (event) => {
+            event.preventDefault();
+        });
+        container.addEventListener("dragenter", (event) => {
+            event.preventDefault();
+            if (draggedItem) {
+                const draggingContainer = draggedItem.parentNode;
+                if (draggingContainer !== event.currentTarget) {
+                    event.currentTarget.appendChild(draggedItem);
+                }
+            }
+        });
+        container.addEventListener("dragleave", () => { });
+        container.addEventListener("drop", (event) => {
+            event.preventDefault();
+        });
+        console.log("working");
+    })
 }
 
 
@@ -129,7 +171,7 @@ function addCard() {
 
 function createCard(card) {
     const { title, desc, priority, id } = card;
-    return `<div class="list">
+    return `<div draggable="true" class="list">
                 <div class="icon"><img class="center" src="img/tick.png" alt="" width="12px" height="12px"></div>
                 <div class="details">
                     <h4>${title}</h4>
@@ -142,9 +184,6 @@ function createCard(card) {
                 </div>
             </div>`;
 }
-function editCard() {
-    popup.classList.add("flex");
-}
 
 function removeCard(element) {
     const id = element.id;
@@ -156,8 +195,21 @@ function removeCard(element) {
     data = newArr
 
     render(data);
-    console.log(newArr)
 }
+
+function editCard() {
+    popup.classList.add("flex");
+
+    for (let i = 0; i < data.length; i++) {
+        console.log(data[i].title);
+        console.log(data[i].desc);
+        console.log(data[i].status);
+        console.log(data[i].priority);
+    }
+}
+
+
+
 
 button.onclick = addCard;
 exit[0].onclick = closePopup;
