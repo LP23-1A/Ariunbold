@@ -30,6 +30,10 @@ function openPopup() {
 }
 
 function closePopup() {
+    input.value = "";
+    textArea.value = "";
+    select.value = "";
+    difficult.value = "";
     popup.classList.remove("flex");
 }
 
@@ -54,15 +58,15 @@ let data = [
     }
 ];
 
-
 function render(data) {
-
-    const count = {
+    
+    let maincount = {
         todoCount: 0,
         inProgressCount: 0,
         stuckCount: 0,
         doneCount: 0
     }
+
 
     toDo.innerHTML = "";
     inProgress.innerHTML = "";
@@ -72,43 +76,48 @@ function render(data) {
     for (let i = 0; i < data.length; i++) {
         if (data[i].status === "To Do") {
             toDo.innerHTML += createCard(data[i]);
-            count.todoCount += 1;
+            maincount.todoCount += 1;
         }
         if (data[i].status === "In progress") {
             inProgress.innerHTML += createCard(data[i]);
-            count.inProgressCount += 1;
+            maincount.inProgressCount += 1;
         }
         if (data[i].status === "Stuck") {
             stuck.innerHTML += createCard(data[i]);
-            count.stuckCount += 1;
+            maincount.stuckCount += 1;
         }
         if (data[i].status === "Done") {
             done.innerHTML += createCard(data[i]);
-            count.doneCount += 1;
+            maincount.doneCount += 1;
         }
     }
 
-    todoCount.innerText = count.todoCount;
-    inProgressCount.innerText = count.inProgressCount;
-    stuckCount.innerText = count.stuckCount;
-    doneCount.innerText = count.doneCount;
+    todoCount.innerText = maincount.todoCount;
+    inProgressCount.innerText = maincount.inProgressCount;
+    stuckCount.innerText = maincount.stuckCount;
+    doneCount.innerText = maincount.doneCount;
+    
 
     let deleteIcon = document.querySelectorAll('.remove');
     let edit = document.querySelectorAll(".edit");
+    let finish = document.querySelectorAll(".finish");
 
     for (let i = 0; i < deleteIcon.length; i++) {
         deleteIcon[i].onclick = () => {
             removeCard(deleteIcon[i])
         }
-        edit[i].onclick = editCard;
-        console.log(deleteIcon[i]);
+        edit[i].onclick = () => {
+            editCard(edit[i]);
+        }
+        finish[i].onclick = () => {
+            finishTask(finish[i]);
+        }
+        dragAndDrop(data[i]);
     }
-    dragNdrop()
 }
 
-
-function dragNdrop() {
-
+function dragAndDrop(el) {
+    console.log(id);
     let lists = document.querySelectorAll(".list");
     lists.forEach((lists) => {
         lists.addEventListener("dragstart", (event) => {
@@ -121,11 +130,10 @@ function dragNdrop() {
         });
 
         lists.addEventListener("dragend", () => {
-            draggedItem = null;
         });
     });
 
-    listCard.forEach((container) => {
+    listCard.forEach((container, index) => {
         container.addEventListener("dragover", (event) => {
             event.preventDefault();
         });
@@ -135,6 +143,24 @@ function dragNdrop() {
                 const draggingContainer = draggedItem.parentNode;
                 if (draggingContainer !== event.currentTarget) {
                     event.currentTarget.querySelector('.list-container').appendChild(draggedItem);
+                    for (let i = 0; i < data.length; i++){
+                        const id = draggedItem.getAttribute("data-id");
+                        if (data[i].id === id){
+                            if (index === 0){
+                                data[i].status = "To Do";
+                            }
+                            else if (index === 1){
+                                data[i].status = "In progress";
+                            }
+                            else if (index === 2){
+                                data[i].status = "Stuck";
+                            }
+                            else if (index === 3){
+                                data[i].status = "Done";
+                            }
+                        }
+                        console.log(data[i].status);
+                    }
                     
                 }
             }
@@ -170,7 +196,7 @@ function addCard() {
 function createCard(card) {
     const { title, desc, priority, id } = card;
     return `<div draggable="true" class="list" data-id=${id}>
-                <div class="icon"><img class="center" src="img/tick.png" alt="" width="12px" height="12px"></div>
+                <div class="icon finish" id="${id}"><img class="center" src="img/tick.png" alt="" width="12px" height="12px"></div>
                 <div class="details">
                     <h4>${title}</h4>
                     <p>${desc}</p>
@@ -178,7 +204,7 @@ function createCard(card) {
                 </div>
                 <div class="actions">
                     <div class="icon remove" id="${id}"><img src="img/x.png" alt="" width="12px" height="12px"></div>
-                    <div class="icon edit"><img src="img/note.png" alt="" width="12px" height="12px"></div>
+                    <div class="icon edit" id="${id}"><img src="img/note.png" alt="" width="12px" height="12px"></div>
                 </div>
             </div>`;
 }
@@ -195,18 +221,53 @@ function removeCard(element) {
     render(data);
 }
 
-function editCard() {
+function editCard(element) {
+console.log("working");
+console.log(data);
+    const id = element.id;
+
     popup.classList.add("flex");
 
     for (let i = 0; i < data.length; i++) {
-        console.log(data[i].title);
-        console.log(data[i].desc);
-        console.log(data[i].status);
-        console.log(data[i].priority);
+
+        if (id === data[i].id){
+            console.log(id);
+            input.value = data[i].title;
+            textArea.value = data[i].desc;
+            select.value = data[i].status;
+            difficult.value = data[i].priority;
+
+            button.onclick = () => {
+
+                data[i].title = input.value;
+                data[i].desc = textArea.value;
+                data[i].status = select.value;
+                data[i].priority = difficult.value;
+
+                render(data);
+
+                popup.classList.remove("flex");
+
+                button.onclick = addCard;
+
+                input.value = "";
+                textArea.value = "";
+                select.value = "";
+                difficult.value = "";
+            }
+        }
     }
 }
 
-
+function finishTask(element){
+    const id = element.id;
+    for (let i = 0; i < data.length; i++){
+        if (id === data[i].id){
+            data[i].status = "Done";
+            render(data);
+        }
+    }
+}
 
 
 button.onclick = addCard;
