@@ -112,11 +112,11 @@ function render(data) {
         finish[i].onclick = () => {
             finishTask(finish[i]);
         }
-        dragAndDrop(data[i]);
+        dragAndDrop();
     }
 }
 
-function dragAndDrop(el) {
+function dragAndDrop() {
     console.log(id);
     let lists = document.querySelectorAll(".list");
     lists.forEach((lists) => {
@@ -208,6 +208,31 @@ function createCard(card) {
                 </div>
             </div>`;
 }
+
+function sort(){
+    let diff = {
+        todo1: [],
+        inprogress1: [],
+        stuck1: [],
+        done1: []
+    };
+    for (let i = 0; i < data.length; i++){
+        if (data[i].status == "To Do"){
+            diff.todo1.push(data[i]);
+        }
+        else if (data[i].status == "In progress"){
+            diff.inprogress1.push(data[i]);
+        }
+        else if (data[i].status == "Stuck"){
+            diff.stuck1.push(data[i]);
+        }
+        else if (data[i].status == "Done"){
+            diff.done1.push(data[i]);
+        }
+    }
+    console.log(diff);
+}
+sort();
 
 function removeCard(element) {
     const id = element.id;
