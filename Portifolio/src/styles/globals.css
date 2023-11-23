@@ -1,0 +1,258 @@
+* {
+  box-sizing: border-box;
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  margin: 0;
+}
+.flex {
+  display: flex;
+}
+.wrap {
+  flex-wrap: wrap;
+}
+.column {
+  flex-direction: column;
+}
+.space-bet {
+  justify-content: space-between;
+}
+.gap-16 {
+  gap: 16px;
+}
+.gap-48 {
+  gap: 48px;
+}
+.gap-8 {
+  gap: 8px;
+}
+.gap-30 {
+  gap: 30px;
+}
+.mar-r-8 {
+  margin-right: 8px;
+}
+.align-center {
+  align-items: center;
+}
+.center {
+  display: flex;
+  justify-content: center;
+  align-self: center;
+}
+.body {
+  width: 100%;
+  justify-content: center;
+  align-items: center;
+  display: flex;
+}
+.container {
+  width: 1280px;
+}
+.hero--left-side {
+  flex-direction: column;
+  max-width: 768px;
+}
+.hero--right-side {
+  display: flex;
+  min-width: 320px;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  flex: 1 0 0;
+  align-self: stretch;
+  position: relative;
+}
+.heroImg {
+  width: 280px;
+  height: 320px;
+  position: absolute;
+  border: 8px solid var(--gray-default, #fff);
+  left: 0;
+  top: 0;
+}
+.hero-bg {
+  width: 280px;
+  height: 320px;
+  flex-shrink: 0;
+  border: 8px solid var(--gray-default, #fff);
+  background: var(--gray-200, #e5e7eb);
+  position: absolute;
+  z-index: -1;
+  left: 40px;
+  top: 40px;
+}
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  padding: 16px 80px;
+}
+
+.header--list-container {
+  display: flex;
+  gap: 24px;
+}
+
+.header--context {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+  justify-content: center;
+}
+
+.header--list-container li {
+  list-style: none;
+}
+
+.header--theme {
+  padding: 6px;
+  margin-right: 16px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border: none;
+  background-color: white;
+}
+
+.header--cv-button {
+  color: white;
+  padding: 6px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 8px;
+  border-radius: 12px;
+  border: none;
+  background: var(--gray-900, #111827);
+  font-size: 16px;
+}
+
+.top-text--title {
+  color: var(--gray-900, #111827);
+  font-size: 60px;
+  font-style: normal;
+  font-weight: 700;
+  line-height: 72px;
+  letter-spacing: -1.2px;
+}
+.top-text {
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+.font-16-gray {
+  color: var(--gray-600, #4b5563);
+  font-size: 16px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 24px;
+}
+
+.social-icon {
+  width: 36px;
+  height: 36px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: white;
+  border: none;
+}
+
+.category {
+  padding: 4px 20px;
+  background-color: #e5e7eb;
+  font-size: 14px;
+  color: var(--gray-600, #4b5563);
+  border-radius: 12px;
+  width: fit-content;
+}
+
+.ab {
+  display: flex;
+  gap: 48px;
+}
+
+.ab--left-side {
+  width: 50%;
+  position: relative;
+}
+
+.left-side--header {
+  color: var(--gray-900, #111827);
+  font-size: 30px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 36px;
+  letter-spacing: -0.6px;
+}
+.font-black-20 {
+  color: var(--gray-900, #111827);
+  font-size: 20px;
+  font-style: normal;
+  font-weight: 600;
+  line-height: 28px;
+}
+.ab--right-side {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+.ab-img {
+  width: 400px;
+  height: 480px;
+  flex-shrink: 0;
+  border: 8px solid var(--gray-50, #f9fafb);
+  position: absolute;
+  left: 40px;
+  top: 0;
+  z-index: 1;
+}
+.gray-bg{
+  background: var(--gray-50, #f9fafb);
+}
+.ab-bg {
+  width: 400px;
+  height: 480px;
+  flex-shrink: 0;
+  border: 8px solid var(--gray-50, #f9fafb);
+  background: var(--gray-200, #e5e7eb);
+  position: absolute;
+  top: 40px;
+  left: 0;
+}
+.icon-text {
+  color: var(--gray-600, #4b5563);
+  font-size: 18px;
+  font-style: normal;
+  font-weight: 400;
+  line-height: 28px;
+}
+
+.pad-96-80 {
+  padding: 96px 80px;
+}
+
+.exInfo {
+  width: 896px;
+  padding: 32px;
+  border-radius: 12px;
+  background: var(--gray-default, #fff);
+  box-shadow: 0px 2px 2px 0px rgba(0, 0, 0, 0.06),
+    0px 4px 3px 0px rgba(0, 0, 0, 0.07);
+}
+
+.work-main--left-side {
+  width: 50%;
+  padding: 48px;
+}
+.work-main--right-side {
+  width: 50%;
+  padding: 48px;
+  gap: 24px;
+}
+.link-btn {
+  border: none;
+  width: fit-content;
+  background-color: white;
+}
