@@ -3,7 +3,6 @@ import FigmaIcon from "./FigmaIcon";
 import LocationIcon from "./LocationIcon";
 import TwitterIcon from "./TwitterIcon";
 import DotIcon from "./DotIcon";
-import Sagar from "./Sagar";
 
 export default function Hero(){
     return (

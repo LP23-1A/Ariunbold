@@ -3,10 +3,12 @@ import Category from "./Category"
 export default function Projects(){
     return (
         <div className="work-main flex">
-        <div className="work-main--left-side">img</div>
+        <div className="gray-bg work-main--left-side">
+          <img className="work-img" src="https://s3-alpha-sig.figma.com/img/13a1/57f2/d0bfafa5cbd6a89dfe634a542f95ebd2?Expires=1701648000&Signature=qBth9sqImCFsPd1BsOGncM-miU3MyvwhVcxk1MzE1Auk9Xt2dBxUqpqrvmz9lM5Q1gTFA7MgbbbqBzOn4l12AU83a-bh~qrRImi198t68axRZ7Z25qnNIBbwMZSP14Hg7bn~iKEELMkRFMw50s6xgHbbH9xpMfgeItKInBg67GqxLkI8MVjyenvU6~PEtqd7CX-ig~wdaSoQsT8qwHY-04ApM9lyd64oGgHojgygyDhHr7KKtGc2EsTPgFLEcQrtY8GeP8V33KUhEUn3WuLar8XWgjgDQtr~6vOQIh8SiFY-kAQ3P-kPmhOeunqRatY99DefER2-6c0-XyL4wyQd0g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="" />
+        </div>
         <div className="work-main--right-side flex column">
           <p className="font-black-20">Fiskil</p>
-          <p className="top-text--text">
+          <p className="font-16-gray">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
             nec urna ac tellus volutpat viverra. Vestibulum ante ipsum primis in
             faucibus orci luctus et ultrices posuere cubilia curae.

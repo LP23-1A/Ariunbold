@@ -8,11 +8,11 @@ export default function Skills() {
       <div className="category center">
             Skills
         </div>
-        <div className="center">
+        <div className="center font-20-gray">
           The skills, tools and technologies I am really good at:
         </div>
       </div>
-      <div className="flex space-bet">{<ToolsAndTech />}</div>
+      <div className="center wrap gap-e">{<ToolsAndTech />}</div>
     </div>
   );
 }
