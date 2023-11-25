@@ -1,6 +1,6 @@
 import ThemeIcon from "./ThemeIcon";
 
-export default function Navbar() {
+export default function Navbar({DarkMode}) {
   return (
     <header className="header">
       <div className="center">
@@ -15,7 +15,7 @@ export default function Navbar() {
           <li className="font-16-gray">Testimonials</li>
           <li className="font-16-gray">Contact</li>
         </ul>
-        <button className="header--theme">{<ThemeIcon />}</button>
+        <button onClick={DarkMode} className="header--theme">{<ThemeIcon />}</button>
         <button className="header--cv-button">Download CV</button>
       </div>
     </header>

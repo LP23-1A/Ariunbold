@@ -6,20 +6,26 @@ import Experience from "@/components/Experience";
 import Work from "@/components/Work";
 import Footer from "@/components/Footer";
 import Designed from "@/components/Designed";
+import { useState } from "react";
 
 export default function Home() {
-
+  const [isDark, setIsDark] = useState(false);
+  const DarkMode = () => {
+    setIsDark(!isDark);
+  };
   return (
-    <section className="body">
-      <section className="container">
-        <Navbar />
-        <Hero />
-        <Ab />
-        <Skills />
-        <Experience />
-        <Work/>
-        <Footer/>
-        <Designed/>
+    <section className={`${isDark && 'bg-black'}`}>
+      <section className="body">
+        <section className="container">
+          <Navbar DarkMode={DarkMode} isDark={isDark} />
+          <Hero />
+          <Ab />
+          <Skills />
+          <Experience />
+          <Work />
+          <Footer />
+          <Designed />
+        </section>
       </section>
     </section>
   )

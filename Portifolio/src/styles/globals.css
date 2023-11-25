@@ -15,6 +15,9 @@
 .space-bet {
   justify-content: space-between;
 }
+.bg-black{
+  background-color: black;
+}
 .gap-e{
   gap: 80px;
 }
