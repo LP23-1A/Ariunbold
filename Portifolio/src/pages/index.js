@@ -14,7 +14,7 @@ export default function Home() {
     setIsDark(!isDark);
   };
   return (
-    <section className={`${isDark && 'bg-black'}`}>
+    <section className={`${isDark && 'black-theme'}`}>
       <section className="body">
         <section className="container">
           <Navbar DarkMode={DarkMode} isDark={isDark} />
