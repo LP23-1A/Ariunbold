@@ -3,7 +3,7 @@ import ToolsAndTech from "@/components/ToolsAndTech";
 
 export default function Skills() {
   return (
-    <div className="pad-96-80 center column container gap-48">
+    <div className="pad-96-80 max-[900px]:py-[64px] max-[900px]:px-[16px] center column container gap-48">
       <div className="flex column gap-16">
       <div className="category center">
             Skills

@@ -2,16 +2,16 @@ import Category from "@/components/Category";
 
 export default function Ab() {
   return (
-    <div className="container center column pad-96-80 gap-48 gray-bg">
+    <div className="container center column pad-96-80 max-[900px]:py-[64px] max-[900px]:px-[16px] gap-48 gray-bg">
       <div className="category center">
         About me
       </div>
-      <div className="ab">
-        <div className="ab--left-side">
-          <img className="ab-img" src="https://s3-alpha-sig.figma.com/img/8781/bda6/7a25952db5724f48492cd455a6e81952?Expires=1701648000&Signature=fs5aPu4CV-9p9l3svTQeCZniGyI27KYBunuKDT8BfUnqALTLbvOH8yrhk1vmkXqtis3YbgRARf8~PSlPCYfvvJdT~MRD-f4CxLoL7i9v4vIOZQoJpn4WBu9YFbqiX~STqDPBzNS7m7fYl-zKj3cMVJvkceHLPUJu6VOXqHgnQF3rfsi0oHSFFZWYZoGIQQgU4zlJTMCRrccDkH3NTQIjFU39bW3g5WVS-3o4cT9SlXUwcVo2wqvA10um5dnxiVxcc-Ntr2QzJKoCKXGVnCmsc~mnIaOj49IeWTohJP-HVaSLwJFnUstxvgPwcVMkODOmgwKfDs0agiH0aacVjM5~iQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="" />
-          <div className="ab-bg"></div>
+      <div className="ab max-[900px]:flex-col ">
+        <div className="ab--left-side max-[900px]:w-[100%] max-[900px]:flex max-[900px]:justify-center">
+          <img className="ab-img max-[900px]:w-[280px] max-[900px]:h-[360px]" src="https://s3-alpha-sig.figma.com/img/8781/bda6/7a25952db5724f48492cd455a6e81952?Expires=1701648000&Signature=fs5aPu4CV-9p9l3svTQeCZniGyI27KYBunuKDT8BfUnqALTLbvOH8yrhk1vmkXqtis3YbgRARf8~PSlPCYfvvJdT~MRD-f4CxLoL7i9v4vIOZQoJpn4WBu9YFbqiX~STqDPBzNS7m7fYl-zKj3cMVJvkceHLPUJu6VOXqHgnQF3rfsi0oHSFFZWYZoGIQQgU4zlJTMCRrccDkH3NTQIjFU39bW3g5WVS-3o4cT9SlXUwcVo2wqvA10um5dnxiVxcc-Ntr2QzJKoCKXGVnCmsc~mnIaOj49IeWTohJP-HVaSLwJFnUstxvgPwcVMkODOmgwKfDs0agiH0aacVjM5~iQ__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="" />
+          <div className="ab-bg hidden"></div>
         </div>
-        <div className="ab--right-side">
+        <div className="ab--right-side max-[900px]:w-[100%]">
           <p className="left-side--header">
             Curious about me? Here you have it:
           </p>

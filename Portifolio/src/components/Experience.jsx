@@ -4,7 +4,7 @@ import ExInfo from "@/components/ExInfo";
 
 export default function Experience(){
     return (
-        <div className="flex column pad-96-80 container gray-bg gap-48">
+        <div className="flex column max-[900px]:py-[64px] max-[900px]:px-[16px] pad-96-80 container gray-bg gap-48">
             <div className="flex column gap-16">
             <div className="category center">
                 Experience

@@ -23,7 +23,7 @@ let data = [
 
 function ExInfoCreater({ url, header, body, date }) {
   return (
-    <div className="flex space-bet exInfo">
+    <div className="flex space-bet gap-48 max-[900px]:flex-col max-[900px]:gap-[16px] exInfo">
       <div className="upwork">
         <img className="upwork-img" src={url} alt="" />
       </div>

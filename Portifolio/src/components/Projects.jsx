@@ -2,11 +2,11 @@ import Category from "./Category"
 
 export default function Projects(){
     return (
-        <div className="work-main flex">
-        <div className="gray-bg work-main--left-side">
+      <div className="work-main flex max-[900px]:flex-col">
+        <div className="max-[900px]:p-[32px] max-[900px]:justify-center gray-bg work-main--left-side max-[900px]:w-[100%] max-[900px]:rounded-t-[12px] max-[900px]:rounded-b-[0px]">
           <img className="work-img" src="https://s3-alpha-sig.figma.com/img/13a1/57f2/d0bfafa5cbd6a89dfe634a542f95ebd2?Expires=1701648000&Signature=qBth9sqImCFsPd1BsOGncM-miU3MyvwhVcxk1MzE1Auk9Xt2dBxUqpqrvmz9lM5Q1gTFA7MgbbbqBzOn4l12AU83a-bh~qrRImi198t68axRZ7Z25qnNIBbwMZSP14Hg7bn~iKEELMkRFMw50s6xgHbbH9xpMfgeItKInBg67GqxLkI8MVjyenvU6~PEtqd7CX-ig~wdaSoQsT8qwHY-04ApM9lyd64oGgHojgygyDhHr7KKtGc2EsTPgFLEcQrtY8GeP8V33KUhEUn3WuLar8XWgjgDQtr~6vOQIh8SiFY-kAQ3P-kPmhOeunqRatY99DefER2-6c0-XyL4wyQd0g__&Key-Pair-Id=APKAQ4GOSFWCVNEHN3O4" alt="" />
         </div>
-        <div className="work-main--right-side flex column">
+        <div className="work-main--right-side flex column max-[900px]:w-[100%] max-[900px]:rounded-t-[0px] max-[900px]:rounded-b-[12px]">
           <p className="font-black-20">Fiskil</p>
           <p className="font-16-gray">
             Lorem ipsum dolor sit amet, consectetur adipiscing elit. Maecenas
