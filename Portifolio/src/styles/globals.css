@@ -1,7 +1,9 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
-
+img{
+  max-width: fit-content;
+}
 
 * {
   box-sizing: border-box;
@@ -28,7 +30,7 @@
 }
 .black-theme{
   background: var(--gray-dark-default, #030712);
-
+  
   .remove{
     display: flex;
   }
@@ -36,6 +38,9 @@
     display: none;
   }
 
+  .express{
+    fill: white;
+  }
   .header--theme{
     display: none;
   }
@@ -150,7 +155,7 @@
 }
 .hero--right-side {
   display: flex;
-  min-width: 320px;
+  max-width: 320px;
   flex-direction: column;
   justify-content: center;
   align-items: flex-end;
@@ -161,10 +166,7 @@
 .heroImg {
   width: 280px;
   height: 320px;
-  position: absolute;
   border: 8px solid var(--gray-default, #fff);
-  left: 0;
-  top: 0;
 }
 .hero-bg {
   width: 280px;
@@ -174,7 +176,7 @@
   background: var(--gray-200, #e5e7eb);
   position: absolute;
   z-index: -1;
-  left: 40px;
+  left: 60px;
   top: 40px;
 }
 .header {

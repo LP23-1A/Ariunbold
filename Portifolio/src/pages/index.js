@@ -20,7 +20,7 @@ export default function Home() {
           <Navbar DarkMode={DarkMode} isDark={isDark} />
           <Hero />
           <Ab />
-          <Skills />
+          <Skills isDark={isDark} />
           <Experience />
           <Work />
           <Footer />

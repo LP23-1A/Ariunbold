@@ -1,7 +1,7 @@
 import Category from "@/components/Category";
 import ToolsAndTech from "@/components/ToolsAndTech";
 
-export default function Skills() {
+export default function Skills({isDark}) {
   return (
     <div className="pad-96-80 center column container gap-48">
       <div className="flex column gap-16">
@@ -12,7 +12,7 @@ export default function Skills() {
           The skills, tools and technologies I am really good at:
         </div>
       </div>
-      <div className="center wrap gap-e">{<ToolsAndTech />}</div>
+      <div className="center wrap gap-e">{<ToolsAndTech isDark={isDark} />}</div>
     </div>
   );
 }
