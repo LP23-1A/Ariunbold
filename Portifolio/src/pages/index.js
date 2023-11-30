@@ -13,11 +13,15 @@ export default function Home() {
   const DarkMode = () => {
     setIsDark(!isDark);
   };
+  const [closeHandler, setIsOpen] = useState(false);
+  const Menu = () => {
+    setIsOpen(!closeHandler);
+  };
   return (
     <section className={`${isDark && 'black-theme'}`}>
       <section className="body">
         <section className="container">
-          <Navbar DarkMode={DarkMode} isDark={isDark} />
+          <Navbar DarkMode={DarkMode} isDark={isDark}/>
           <Hero />
           <Ab />
           <Skills isDark={isDark}/>

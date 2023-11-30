@@ -1,7 +1,13 @@
 import ThemeIcon from "./ThemeIcon";
 import NightIcon from "./NightIcon";
+import { useState } from "react";
+import MobileMenu from "./MobileMenu";
 
 export default function Navbar({DarkMode}) {
+  const [isOpen, setIsOpen] = useState(false)
+  const menuHandler = () => {
+    setIsOpen(!isOpen)
+  }
   return (
     <header className="header">
       <div className="center">
@@ -23,7 +29,7 @@ export default function Navbar({DarkMode}) {
         <button onClick={DarkMode} className="header--theme-black">{<NightIcon/>}</button>
         <button className="header--cv-button">Download CV</button>
       </div>
-      <button className="hidden max-[900px]:flex">
+      <button onClick={menuHandler} className={`hidden max-[900px]:flex ${'mobile-menu'}`}>
         <svg className="remove" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none">
           <path d="M4 12H20" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
           <path d="M4 6H20" stroke="#D1D5DB" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
@@ -35,6 +41,9 @@ export default function Navbar({DarkMode}) {
           <path d="M4 18H20" stroke="#4B5563" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"/>
         </svg>
       </button>
+      {
+        isOpen && <MobileMenu setIsOpen={setIsOpen} DarkMode={DarkMode}/>
+      }
     </header>
   );
 }

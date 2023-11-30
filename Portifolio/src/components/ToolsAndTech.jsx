@@ -825,7 +825,7 @@ let data1 = [
 
 const TechStack = ({ content, url }) => {
   return (
-    <div className="flex column align-center" style={{ textAlign: "center" }}>
+    <div className="flex column align-center w-[90px] h-[92px]" style={{ textAlign: "center" }}>
       {url}
       <p className="icon-text">{content}</p>
     </div>
