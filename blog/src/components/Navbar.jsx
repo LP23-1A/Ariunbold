@@ -13,7 +13,7 @@ export default function Navbar(){
                     <button className="font-16-gray">Blog</button>
                     <button className="font-16-gray">Contact</button>
                 </div>
-                <div className="test gap-[12px] flex pr-[8px] pl-[16px] py-[8px] items-center">
+                <div className="bg-[#F4F4F5] rounded-[5px] gap-[12px] flex pr-[8px] pl-[16px] py-[8px] items-center">
                     <input className="outline-none" type="text" placeholder="Search"/>
                     <SearchIcon/>
                 </div>
