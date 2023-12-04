@@ -1,9 +1,11 @@
 import Navbar from "@/components/Navbar";
+import TrendingNews from "@/components/TrendingNews";
 
 export default function Home(){
   return (
-    <div className="flex justify-center items-center">
+    <div className="flex flex-col justify-center items-center">
       <Navbar/>
+      <TrendingNews/>
     </div>
   )
 }
