@@ -1,7 +1,9 @@
+import Navbar from "@/components/Navbar";
+
 export default function Home(){
   return (
-    <div>
-      hi nsu
+    <div className="flex justify-center items-center">
+      <Navbar/>
     </div>
   )
 }
