@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="28" height="28" viewBox="0 0 28 28">
+  <g id="Snow" transform="translate(-2 -2)">
+    <g id="Group" transform="translate(3 3)">
+      <g id="Group_613" data-name="Group 613">
+        <path id="Path-12" d="M9.286.929,13,3.714,16.714.929m8.357,8.357L22.286,13l2.786,3.714m-8.357,8.357L13,22.286,9.286,25.071M.929,16.714,3.714,13,.929,9.286" fill="none" stroke="#ff9c05" stroke-linecap="round" stroke-width="2" fill-rule="evenodd"/>
+        <circle id="Oval-9" cx="1.857" cy="1.857" r="1.857" transform="translate(11.143 11.143)" fill="#ff9c05" stroke="#ff9c05" stroke-width="1"/>
+        <path id="Path-13" d="M13,0V26" fill="none" stroke="#ff9c05" stroke-linecap="round" stroke-width="2" fill-rule="evenodd"/>
+        <path id="Path-14" d="M0,13H26" fill="none" stroke="#ff9c05" stroke-linecap="round" stroke-width="2" fill-rule="evenodd"/>
+        <path id="Path-16" d="M3.714,3.714,22.286,22.286" fill="none" stroke="#ff9c05" stroke-linecap="round" stroke-width="2" fill-rule="evenodd"/>
+        <path id="Path-17" d="M3.714,22.286,22.286,3.714" fill="none" stroke="#ff9c05" stroke-linecap="round" stroke-width="2" fill-rule="evenodd"/>
+      </g>
+    </g>
+  </g>
+</svg>

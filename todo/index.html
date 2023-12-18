@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>ToDo App</title>
+</head>
+<body>
+    <div class="container">
+        <div class="cards">
+
+            <div class="list-card max-height">
+                <div class="list-header">
+                    To do
+                    <div class="count" id="todo-count"></div>
+                </div>
+
+                <div class="list-container" id="toDo">
+                    
+                </div>
+
+                <div class="add-btn">
+                    <div>+ Add card</div>
+                </div>
+            </div>
+
+            <div class="list-card max-height">
+                <div class="list-header">
+                    In progress
+                    <div class="count" id="inprogress-count"></div>
+                </div>
+
+                <div class="list-container" id="inProgress">
+                    
+                </div>
+
+                <div class="add-btn">
+                    <div>+ Add card</div>
+                </div>
+            </div>
+
+            <div class="list-card max-height">
+                <div class="list-header">
+                    Stuck
+                    <div class="count" id="stuck-count"></div>
+                </div>
+
+                <div class="list-container" id="stuck">
+                    
+                </div>
+
+                <div class="add-btn">
+                    <div>+ Add card</div>
+                </div>
+            </div>
+
+            <div class="list-card max-height">
+                <div class="list-header">
+                    Done
+                    <div class="count" id="done-count"></div>
+                </div>
+
+                <div class="list-container" id="done">
+                    
+                </div>
+
+                <div class="add-btn">
+                    <div>+ Add card</div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="back" id="popup">
+            <div class="close"></div>
+            <div class="modal">
+                <div class="form">
+                    <h1>Add Task</h1>
+                    <div>
+                        <p>Title</p>
+                        <input class="error error-red" type="text" name="" id="">
+                        <p class="error-text">Бөглөнө үү</p>
+                    </div>
+                    <div>
+                        <p>Description</p>
+                        <textarea name="" id="" cols="30" rows="10" class="error error-red"></textarea>
+                        <p class="error-text">Бөглөнө үү</p>
+                    </div>
+                    <div>
+                        <p>Status</p>
+                        <select name="" id="selector">
+                            <option value="" selected disabled hidden>Choose here</option>
+                            <option value="To Do">To do</option>
+                            <option value="In progress">In progress</option>
+                            <option value="Stuck">Stuck</option>
+                            <option value="Done">Done</option>
+                        </select>
+                    </div>
+                    <div>
+                        <p>Priority</p>
+                        <select name="" id="difficult">
+                            <option value="" selected disabled hidden>Choose here</option>
+                            <option value="Low">Low</option>
+                            <option value="Medium">Medium</option>
+                            <option value="High">High</option>
+                        </select>
+                    </div>
+                    <button>Add Task</button>
+                </div>
+            </div>
+    </div>
+
+    <script src="script.js"></script>
+</body>
+</html>
