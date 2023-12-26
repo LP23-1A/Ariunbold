@@ -1,4 +1,3 @@
-import express from 'express';
 import bp from 'body-parser';
 const app = express()
 const port = 8000
@@ -15,18 +14,6 @@ const users = [
   },
   {
     id: 3,
-    name: "batmunkh",
-  },
-  {
-    id: 4,
-    name: "batmunkh",
-  },
-  {
-    id: 5,
-    name: "batmunkh",
-  },
-  {
-    id: 6,
     name: "batmunkh",
   },
 ]
