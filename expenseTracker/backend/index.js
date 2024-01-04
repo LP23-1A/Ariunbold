@@ -20,14 +20,18 @@ app.post("/createTable", async (req, res) => {
     try{
         const tableQueryText = `
         CREATE TABLE IF NOT EXISTS users (
-            id SERIAL PRIMARY KEY,
-            username VARCHAR(255) NOT NULL,
-            email VARCHAR(255) NOT NULL
-        )`
+            id uuid PRIMARY KEY DEFAULT uuid_generate_v4(),
+            email VARCHAR(50) UNIQUE NOT NULL,
+            name VARCHAR(50) NOT NULL,
+            password VARCHAR(50) NOT NULL,
+            avatar_img BYTEA,
+            createdAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            updatedAt TIMESTAMP DEFAULT CURRENT_TIMESTAMP,
+            currency_type TEXT DEFAULT 'MNT'
+        )`;
         await pool.query(tableQueryText);
         res.send('ok');
     } catch(error) {
         console.error(error)
     }
-    
 });
