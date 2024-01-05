@@ -3,12 +3,16 @@ import dotenv from 'dotenv';
 import postgres from 'postgres';
 import { pool } from "./db.js";
 import { user } from "./router/user.js";
+import axios from "axios";
+import cors from "cors";
 
 dotenv.config();
 const PORT = process.env.PORT || 8001;
 const app = express();
 
 app.use(express.json());
+
+app.use(cors({origin : "*"}));
 
 app.use('/users',user)
 
