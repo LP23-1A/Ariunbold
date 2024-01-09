@@ -1,7 +1,10 @@
+import { useRouter } from "next/navigation";
 import Geld from "./icons/Geld";
 import Logo from "./icons/Logo";
 
 export default function Login(){
+    const router = useRouter();
+
     return (
         <div className="flex">
             <div className="flex flex-col gap-[40px] justify-center items-center bg-white h-[100vh] w-[50%]">
@@ -20,7 +23,7 @@ export default function Login(){
                 </div>
                 <div className="flex">
                     <p className="text-[#0F172A] text-[16px]">Don’t have account?</p>
-                    <button className="px-[12px] h-[32px] text-[#0166FF] bg-none justify-center flex">Sign up</button>
+                    <button onClick={() => router.push("/Login")} className="px-[12px] h-[32px] text-[#0166FF] bg-none justify-center flex">Sign up</button>
                 </div>
             </div>
             <div className="bg-[#0166FF] w-[50%] h-[100vh]"></div>

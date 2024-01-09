@@ -1,9 +1,7 @@
 import express  from "express";
 import dotenv from 'dotenv';
-import postgres from 'postgres';
 import { pool } from "./db.js";
 import { user } from "./router/user.js";
-import axios from "axios";
 import cors from "cors";
 
 dotenv.config();

@@ -2,15 +2,30 @@ import Geld from "./icons/Geld";
 import Logo from "./icons/Logo";
 import { useEffect, useState } from 'react'
 import axios from 'axios';
+import { useRouter } from "next/navigation";
 
-export default function Login(){
+const api = "http://localhost:8001/users";
 
-    const [data, setData] = useState("");
+export default function SignUp(){
 
-    const getData = async() => {
-        const response = await axios.get("http://localhost:8001/users");
-        setData(response.data);
-    }
+    const [username, setUsername] = useState("");
+    const [email, setEmail] = useState("");
+    const [password, setPassword] = useState("");
+
+    const handler = async () => {
+        const input = {
+            username,
+            email,
+            password,
+        };
+        let res = await axios.post(api,  {
+            username: username,
+            email: email,
+            password: password,
+        });
+        console.log(res)
+    };
+    const router = useRouter();
 
     return (
         <div className="flex">
@@ -24,15 +39,15 @@ export default function Login(){
                     <p className="text-[16px] text-[#334155]">Sign up below to create your Wallet account</p>
                 </div>
                 <div className="flex flex-col gap-[16px]">
-                    <input className="h-[48px] p-[16px] rounded-[8px] border-[1px] border-[#D1D5DB]" type="text" placeholder="Name"/>
-                    <input className="h-[48px] p-[16px] rounded-[8px] border-[1px] border-[#D1D5DB]" type="text" placeholder="Email"/>
-                    <input className="h-[48px] p-[16px] rounded-[8px] border-[1px] border-[#D1D5DB]" type="password" placeholder="Password"/>
+                    <input onChange={(event) => setUsername(event.target.value)} className="h-[48px] p-[16px] rounded-[8px] border-[1px] border-[#D1D5DB]" type="text" placeholder="Name"/>
+                    <input onChange={(event) => setEmail(event.target.value)} className="h-[48px] p-[16px] rounded-[8px] border-[1px] border-[#D1D5DB]" type="text" placeholder="Email"/>
+                    <input onChange={(event) => setPassword(event.target.value)} className="h-[48px] p-[16px] rounded-[8px] border-[1px] border-[#D1D5DB]" type="password" placeholder="Password"/>
                     <input className="h-[48px] p-[16px] rounded-[8px] border-[1px] border-[#D1D5DB]" type="password" placeholder="Re-Password"/>
-                    <button onClick={getData} className="rounded-[20px] w-[384px] h-[48px] bg-[#0166FF] text-white text-[20px]">Sign up</button>
+                    <button onClick={handler} className="rounded-[20px] w-[384px] h-[48px] bg-[#0166FF] text-white text-[20px]">Sign up</button>
                 </div>
                 <div className="flex">
                     <p className="text-[#0F172A] text-[16px]">Already have account?</p>
-                    <button className="px-[12px] h-[32px] text-[#0166FF] bg-none justify-center flex">Log in</button>
+                    <button onClick={() => router.push("/Login")} className="px-[12px] h-[32px] text-[#0166FF] bg-none justify-center flex">Log in</button>
                 </div>
             </div>
             <div className="bg-[#0166FF] w-[50%] h-[100vh]"></div>
