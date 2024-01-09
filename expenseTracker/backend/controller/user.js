@@ -28,10 +28,13 @@ export const createUser = async (req, response) => {
         const queryText = "INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *";
         const res = await pool.query(queryText, [name, email, password]);
         response.send(res.rows[0]);
+        console.log("success");
     } catch (error){
         console.error(error)
+        response.send('error query')
     }
 };
+
 
 export const deleteUser = async (req, response) => {
     const { name, email, id } = req.body;

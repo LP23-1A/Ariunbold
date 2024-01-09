@@ -1,6 +1,5 @@
 "use client";
-import Login from '@/app/components/Login'
-import SignUp from './components/SignUp'
+import SignUp from './signup/page'
 
 
 export default function Home() {
