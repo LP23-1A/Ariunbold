@@ -43,7 +43,7 @@ export default function Dashboard(){
                             </div>
                             <div className="flex gap-[8px]">
                                 <Up/>
-                                <p>32% from last month</p>
+                                <p className="text-black">32% from last month</p>
                             </div>
                         </div>
                     </div>
@@ -60,7 +60,7 @@ export default function Dashboard(){
                             </div>
                             <div className="flex gap-[8px]">
                                 <Down/>
-                                <p>32% from last month</p>
+                                <p className="text-black">32% from last month</p>
                             </div>
                         </div>
                     </div>

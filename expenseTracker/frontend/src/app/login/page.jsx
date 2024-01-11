@@ -18,8 +18,8 @@ export default function Login(){
                     <p className="text-[16px] text-[#334155]">Welcome back, Please enter your details</p>
                 </div>
                 <div className="flex flex-col gap-[16px]">
-                    <input className="h-[48px] p-[16px] rounded-[8px] border-[1px] border-[#D1D5DB]" type="text" placeholder="Email"/>
-                    <input className="h-[48px] p-[16px] rounded-[8px] border-[1px] border-[#D1D5DB]" type="password" placeholder="Password"/>
+                    <input className="h-[48px] p-[16px] rounded-[8px] border-[1px] bg-white text-black border-[#D1D5DB]" type="text" placeholder="Email"/>
+                    <input className="h-[48px] p-[16px] rounded-[8px] border-[1px] bg-white text-black border-[#D1D5DB]" type="password" placeholder="Password"/>
                     <button className="rounded-[20px] w-[384px] h-[48px] bg-[#0166FF] text-white text-[20px]">Log in</button>
                 </div>
                 <div className="flex">
