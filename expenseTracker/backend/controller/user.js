@@ -1,4 +1,3 @@
-import { response } from "express";
 import { pool } from "../db.js";
 
 export const getUsers = async (req, res) => {
@@ -24,6 +23,7 @@ export const getOneUser = async (req, res) => {
 
 export const createUser = async (req, response) => {
     const { name, email, password } = req.body;
+    console.log(req.body);
     try{
         const queryText = "INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *";
         const res = await pool.query(queryText, [name, email, password]);

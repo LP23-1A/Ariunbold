@@ -20,11 +20,11 @@ export default function SignUp(){
             password,
         };
         let res = await axios.post(api,  {
-            username: username,
+            name: username,
             email: email,
             password: password,
         });
-        console.log(res)
+        
     };
     const router = useRouter();
 
