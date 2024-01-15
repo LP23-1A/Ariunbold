@@ -1,4 +1,5 @@
 "use client";
+import List from "@/components/List";
 import Navbar from "@/components/Navbar";
 import DotBlue from "@/components/icons/DotBlue";
 import DotGreen from "@/components/icons/DotGreen";
@@ -14,7 +15,7 @@ export default function Dashboard(){
     return(
         <div>
             <Navbar/>
-            <div className="py-[24px] bg-[#E2E8F0] h-[100vh]">
+            <div className="py-[24px] bg-[#E2E8F0] h-[100vh] flex flex-col items-center gap-[24px]">
                 <div className="flex gap-[24px] justify-center">
                     <div className="w-[384px] h-[229px] rounded-[12px] overflow-hidden relative">
                         <div className="bg-[#0166FF] w-full h-full absolute"></div>
@@ -66,7 +67,17 @@ export default function Dashboard(){
                     </div>
                 </div>
                 <div></div>
-                <div></div>
+                <div className="w-[1200px] bg-white rounded-[12px]">
+                    <div className="text-[#0F172A] text-[16px] p-[16px] flex items-center">Last Records</div>
+                    <hr/>
+                    <div className="px-[24px]">
+                        <List/>
+                        <List/>
+                        <List/>
+                        <List/>
+                        <List/>
+                    </div>
+                </div>
             </div>
             
         </div>

@@ -22,11 +22,11 @@ export const getOneUser = async (req, res) => {
 }
 
 export const createUser = async (req, response) => {
-    const { name, email, password } = req.body;
+    const { name, email, password, currency_type } = req.body;
     console.log(req.body);
     try{
-        const queryText = "INSERT INTO users (name, email, password) VALUES ($1, $2, $3) RETURNING *";
-        const res = await pool.query(queryText, [name, email, password]);
+        const queryText = "INSERT INTO users (name, email, password, currency_type) VALUES ($1, $2, $3, $4) RETURNING *";
+        const res = await pool.query(queryText, [name, email, password, currency_type]);
         response.send(res.rows[0]);
         console.log("success");
     } catch (error){

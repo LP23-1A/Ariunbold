@@ -15,6 +15,7 @@ export default function Currency(){
     const handler = async () => {
         data.currency = currency; 
         localStorage.setItem("data", JSON.stringify(data));
+        console.log("currency value",currency);
         router.push("/finish");
     };
 
