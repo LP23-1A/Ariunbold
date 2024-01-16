@@ -11,8 +11,9 @@ export default function Login()
     const api = "http://localhost:8001/users"; 
     const router = useRouter();
     
-    const [email,  setemail] = useState('');
-    const [password,  setpassword] = useState('');
+    const [email,  setEmail] = useState('');
+    const [password,  setPassword] = useState('');
+    const [valid, setValid] = useState('hidden bg-[#f8d7da] text-black p-[5px] rounded-[5px] justify-center items-center');
 
     const handler = async () => {
       let res = await axios.get(api, {  email , password });
@@ -26,7 +27,8 @@ export default function Login()
         router.push("/dashboard")
         console.log(checker)
       } else {
-        console.log('check password and username', checker)
+        setValid('shake bg-[#f8d7da] text-black p-[5px] rounded-[5px] flex justify-center items-center');
+        console.log("wrong")
       }
     }
 
@@ -42,8 +44,9 @@ export default function Login()
                     <p className="text-[16px] text-[#334155]">Welcome back, Please enter your details</p>
                 </div>
                 <div className="flex flex-col gap-[16px]">
-                    <input onChange={(event) => setemail(event.target.value)} className="h-[48px] p-[16px] rounded-[8px] border-[1px] bg-white text-black border-[#D1D5DB]" type="text" placeholder="Email"/>
-                    <input onChange={(event) => setpassword(event.target.value)} className="h-[48px] p-[16px] rounded-[8px] border-[1px] bg-white text-black border-[#D1D5DB]" type="password" placeholder="Password"/>
+                    <input onChange={(event) => setEmail(event.target.value)} className="h-[48px] p-[16px] rounded-[8px] border-[1px] bg-white text-black border-[#D1D5DB]" type="text" placeholder="Email"/>
+                    <input onChange={(event) => setPassword(event.target.value)} className="h-[48px] p-[16px] rounded-[8px] border-[1px] bg-white text-black border-[#D1D5DB]" type="password" placeholder="Password"/>
+                    <div className={`${valid}`}>Invalid email, password combination</div>
                     <button onClick={handler} className="rounded-[20px] w-[384px] h-[48px] bg-[#0166FF] text-white text-[20px]">Log in</button>
                 </div>
                 <div className="flex">
