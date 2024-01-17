@@ -1,14 +1,21 @@
 "use client";
 import Navbar from "@/components/Navbar";
+import CategoryData from "@/components/CategoryData";
 import { useState } from "react";
+import CategoryModal from "@/components/CategoryModal";
 
 export default function Records(){
     const [minAmount, setMinAmount] = useState("0");
     const [maxAmount, setMaxAmount] = useState("1000");
+    const [modalOpener, setModalOpener] = useState("hidden");
+
+    const handler = () => {
+        setModalOpener("flex");
+    }
 
 
     return (
-        <div>
+        <div className="relative">
             <Navbar/>
             <div className="px-[120px] py-[24px] bg-[#F3F4F6]">
                 <div className="bg-white p-[24px] flex flex-col items-start gap-[24px] rounded-[12px] border-[1px] border-[#E5E7EB] w-fit">
@@ -36,6 +43,13 @@ export default function Records(){
                         <div className="flex justify-between">
                             <p className="text-[16px] text-black flex items-center justify-center">Category</p>
                             <button className="text-[#1F2937] opacity-[0.2] text-[16px] h-[32px] px-[12px] flex justify-center items-center">Clear</button>
+                        </div>
+                        <div className="flex flex-col gap-[8px]">
+                            <CategoryData/>
+                            <button onClick={handler} className="text-black h-[32px] p-[12px] flex justify-center items-center">Add Category</button>
+                            <div className={modalOpener}>
+                                <CategoryModal modalOpener = {modalOpener}/>
+                            </div>
                         </div>
                     </div>
                     <div className="flex flex-col gap-[16px]">

@@ -3,6 +3,7 @@ import dotenv from 'dotenv';
 import { pool } from "./db.js";
 import { user } from "./router/user.js";
 import cors from "cors";
+import { category } from "./router/category.js";
 
 dotenv.config();
 const PORT = process.env.PORT || 8001;
@@ -12,7 +13,8 @@ app.use(express.json());
 
 app.use(cors({origin : "*"}));
 
-app.use('/users',user)
+app.use('/users',user);
+app.use('/category', category);
 
 app.listen(PORT, () => {
     console.log(`App running on port ${PORT}`);
@@ -43,7 +45,7 @@ app.post("/createCategory", async (_, res) => {
       const tableQueryText = `
           CREATE TABLE IF NOT EXISTS category (
             id uuid PRIMARY KEY DEFAULT uuid_generate_v4() ,
-            name VARCHAR(100) NOT NULL,
+            name VARCHAR(100),
             description TEXT,
             createAt TIMESTAMP DEFAULT NOW(),
             updateAt TIMESTAMP DEFAULT NOW(),
