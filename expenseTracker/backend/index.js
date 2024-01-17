@@ -37,3 +37,21 @@ app.post("/createTable", async (req, res) => {
         console.error(error)
     }
 });
+
+app.post("/createCategory", async (_, res) => {
+    try {
+      const tableQueryText = `
+          CREATE TABLE IF NOT EXISTS category (
+            id uuid PRIMARY KEY DEFAULT uuid_generate_v4() ,
+            name VARCHAR(100) NOT NULL,
+            description TEXT,
+            createAt TIMESTAMP DEFAULT NOW(),
+            updateAt TIMESTAMP DEFAULT NOW(),
+            category_image text
+          )`;
+      await pool.query(tableQueryText);
+      res.send('ok');
+    } catch (error) {
+      console.error(error);
+    }
+});
